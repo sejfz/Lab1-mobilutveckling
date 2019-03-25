@@ -36,7 +36,12 @@
 
         document.getElementById("zoomIn").addEventListener("click", function() {
           totZoom += 1;
+          map.zoom = getZoom();
         });
+      }
+
+      function getZoom() {
+        return totZoom;
       }
 
       function zoomIn() {
