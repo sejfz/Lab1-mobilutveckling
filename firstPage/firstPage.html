@@ -24,6 +24,9 @@
     <div id="map"></div>
     <button id="zoomIn">zoom in</button>
     <button id="zoomOut">zoom out</button>
+    <button id="satellite">satellite</button>
+    <button id="roadmap">roadmap</button>
+    <button id="hybrid">hybrid</button>
 
     <script>
       var map;
@@ -51,6 +54,30 @@
             map.setZoom(map.getZoom() - 1);
           }
         );
+
+        google.maps.event.addDomListener(
+          document.getElementById("satellite"),
+          "click",
+          function() {
+            map.setMapTypeId("satellite");
+          }
+        );
+
+        google.maps.event.addDomListener(
+          document.getElementById("roadmap"),
+          "click",
+          function() {
+            map.setMapTypeId("roadmap");
+          }
+        );
+
+        google.maps.event.addDomListener(
+          document.getElementById("hybrid"),
+          "click",
+          function() {
+            map.setMapTypeId("hybrid");
+          }
+        );
       }
     </script>
 
@@ -59,6 +86,5 @@
       async
       defer
     ></script>
-    
   </body>
 </html>
