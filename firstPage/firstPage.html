@@ -27,6 +27,7 @@
     <button id="satellite">satellite</button>
     <button id="roadmap">roadmap</button>
     <button id="hybrid">hybrid</button>
+    <button id="tilt">tilt</button>
 
     <script>
       var map;
@@ -35,7 +36,8 @@
           center: { lat: 59.3498092, lng: 18.0684758 },
           zoom: 16,
           mapTypeId: "hybrid",
-          disableDefaultUI: true
+          disableDefaultUI: true,
+          tilt: 0
           //tilt: 45
         });
 
@@ -78,6 +80,22 @@
             map.setMapTypeId("hybrid");
           }
         );
+        google.maps.event.addDomListener(
+          document.getElementById("tilt"),
+          "click",
+          function() {
+            if (map.getTilt() == 0){
+              map.setTilt(45);
+            }
+            else{
+              map.setTilt(0);
+            }
+            
+          }
+          
+        );
+
+        
       }
     </script>
 
