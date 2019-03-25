@@ -84,15 +84,12 @@
           document.getElementById("tilt"),
           "click",
           function() {
-            if (map.getTilt() == 0){
+            if (map.getTilt() == 0) {
               map.setTilt(45);
-            }
-            else{
+            } else {
               map.setTilt(0);
             }
-            
           }
-          
         );
 
         /*//var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
@@ -105,21 +102,22 @@
               title:"Hello World!"
           });
         });*/
-      
+
         marker1 = new google.maps.Marker({
           map: map,
           draggable: true,
           animation: google.maps.Animation.DROP,
-          position: {lat: 59.327, lng: 18.067}
+          position: { lat: 59.327, lng: 18.067 }
         });
+        marker1.addListener("click", toggleBounce1);
 
         marker2 = new google.maps.Marker({
           map: map,
           draggable: false,
           animation: google.maps.Animation.DROP,
-          position: {lat: 59.3498092, lng: 18.0684758}
+          position: { lat: 59.3498092, lng: 18.0684758 }
         }); //wubuubuu
-          marker2.addListener('click', toggleBounce);
+        marker2.addListener("click", toggleBounce2);
 
         function toggleBounce1() {
           if (marker1.getAnimation() !== null) {
@@ -139,8 +137,6 @@
         // To add the marker to the map, call setMap();
         marker1.setMap(map);
         marker2.setMap(map);
-
-        
       }
     </script>
 
