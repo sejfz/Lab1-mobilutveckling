@@ -19,13 +19,14 @@
   </head>
   <body>
     <div id="map"></div>
-    <button id="zoomIn">zoom in</button>
-    <button id="zoomOut">zoom out</button>
-    <button id="satellite">satellite</button>
-    <button id="roadmap">roadmap</button>
-    <button id="hybrid">hybrid</button>
-    <button id="tilt">tilt</button>
-    <button id="myPos">My position</button>
+    <button id="zoomIn">Zoom in</button>
+    <button id="zoomOut">Zoom out</button>
+    <button id="satellite">Satellite</button>
+    <button id="roadmap">Roadmap</button>
+    <button id="hybrid">Hybrid</button>
+    <button id="tilt">Tilt</button>
+    <button id="taiwan">Center Taiwan Marker</button>
+    <button id="france">Center France Marker</button>
 
     <script>
       var map;
@@ -38,6 +39,24 @@
           tilt: 0
           //tilt: 45
         });
+
+        var taipei = { lat: 25.0886, lng: 121.5244 };
+        google.maps.event.addDomListener(
+          document.getElementById("taiwan"),
+          "click",
+          function() {
+            map.setCenter(taipei);
+          }
+        );
+
+        var paris = { lat: 48.860294, lng: 2.338629 };
+        google.maps.event.addDomListener(
+          document.getElementById("france"),
+          "click",
+          function() {
+            map.setCenter(paris);
+          }
+        );
 
         google.maps.event.addDomListener(
           document.getElementById("zoomIn"),
@@ -150,6 +169,55 @@
         }); //wubuubuu
         marker2.addListener("click", toggleBounce2);
 
+        var marketString =
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">Shilin Night Market</h1>' +
+          '<div id="bodyContent">' +
+          "<p><b>Shilin Night Market</b> is one of many night markets in <b>Taiwan, Taipei</b>. " +
+          "The market offers a variety of food and entertainment, including " +
+          "fried ice cream and funfair games.</p>" +
+          "</div>" +
+          "</div>";
+
+        var shopString =
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">Musée du Louvre</h1>' +
+          '<div id="bodyContent">' +
+          "<p><b>Musée du Louvre</b> is Elias favroite place to practice the social media phenomenon <b> planking</b>. " +
+          "It is also a very nice museum, home to the <b> Mona Lisa</b>.</p>" +
+          "</div>" +
+          "</div>";
+
+        var infowindow = new google.maps.InfoWindow({
+          content: marketString
+        });
+
+        var infowindow2 = new google.maps.InfoWindow({
+          content: shopString
+        });
+
+        var celinaz = new google.maps.Marker({
+          position: { lat: 25.0886, lng: 121.5244 },
+          map: map,
+          title: "Shilin Night Market"
+        });
+        celinaz.addListener("click", function() {
+          infowindow.open(map, celinaz);
+        });
+
+        var eliasak = new google.maps.Marker({
+          position: { lat: 48.860294, lng: 2.338629 },
+          map: map,
+          title: "Musée du Louvre"
+        });
+        eliasak.addListener("click", function() {
+          infowindow2.open(map, eliasak);
+        });
+
         function toggleBounce1() {
           if (marker1.getAnimation() !== null) {
             marker1.setAnimation(null);
@@ -167,6 +235,8 @@
 
         marker1.setMap(map);
         marker2.setMap(map);
+        celinaz.setMap(map);
+        eliasak.setMap(map);
       }
     </script>
 
