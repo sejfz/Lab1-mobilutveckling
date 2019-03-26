@@ -128,11 +128,13 @@
         });
         marker1.addListener("click", toggleBounce1);
 
+        var icon = "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/128/Map-Marker-Ball-Right-Pink.png"
         marker2 = new google.maps.Marker({
           map: map,
           draggable: false,
           animation: google.maps.Animation.DROP,
-          position: { lat: 59.3498092, lng: 18.0684758 }
+          position: { lat: 59.3498092, lng: 18.0684758 },
+          icon: icon
         }); //wubuubuu
         marker2.addListener("click", toggleBounce2);
 
