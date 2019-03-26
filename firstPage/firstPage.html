@@ -19,12 +19,14 @@
   </head>
   <body>
     <div id="map"></div>
-    <button id="zoomIn">zoom in</button>
-    <button id="zoomOut">zoom out</button>
-    <button id="satellite">satellite</button>
-    <button id="roadmap">roadmap</button>
-    <button id="hybrid">hybrid</button>
-    <button id="tilt">tilt</button>
+    <button id="zoomIn">Zoom in</button>
+    <button id="zoomOut">Zoom out</button>
+    <button id="satellite">Satellite</button>
+    <button id="roadmap">Roadmap</button>
+    <button id="hybrid">Hybrid</button>
+    <button id="tilt">Tilt</button>
+    <button id="taiwan">Center Taiwan Marker</button>
+    <button id="france">Center France Marker</button>
 
     <script>
       var map;
@@ -37,6 +39,24 @@
           tilt: 0
           //tilt: 45
         });
+
+        var taipei = { lat: 25.0886, lng: 121.5244};
+        google.maps.event.addDomListener(
+          document.getElementById("taiwan"),
+          "click",
+          function() {
+            map.setCenter(taipei);
+          }
+        );
+
+        var paris = { lat: 48.860294, lng: 2.338629 };
+        google.maps.event.addDomListener(
+          document.getElementById("france"),
+          "click",
+          function() {
+            map.setCenter(paris);
+          }
+        );
 
         google.maps.event.addDomListener(
           document.getElementById("zoomIn"),
@@ -184,6 +204,8 @@
         celinaz.setMap(map);
         eliasak.setMap(map);
 
+
+      
       }
     </script>
 
