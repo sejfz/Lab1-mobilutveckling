@@ -116,8 +116,6 @@
         }); //wubuubuu
         marker2.addListener("click", toggleBounce2);
 
-
-
         var marketString = '<div id="content">'+
           '<div id="siteNotice">'+
           '</div>'+
@@ -143,7 +141,7 @@
         content: marketString
           });
 
-        var infowindow = new google.maps.InfoWindow({
+        var infowindow2 = new google.maps.InfoWindow({
         content: shopString
           });
 
@@ -159,10 +157,10 @@
         var eliasak = new google.maps.Marker({
           position: { lat: 48.860294, lng: 2.338629},
           map: map,
-          title: "Cyberdog"
+          title: "Musée du Louvre"
         });
         eliasak.addListener('click', function() {
-          infowindow.open(map, eliasak);
+          infowindow2.open(map, eliasak);
         });
 
 
@@ -184,6 +182,7 @@
         marker1.setMap(map);
         marker2.setMap(map);
         celinaz.setMap(map);
+        eliasak.setMap(map);
 
       }
     </script>
