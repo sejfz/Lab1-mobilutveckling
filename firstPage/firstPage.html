@@ -116,13 +116,34 @@
         }); //wubuubuu
         marker2.addListener("click", toggleBounce2);
 
-        celinaz = new google.maps.Marker({
+
+
+        var marketString = '<div id="content">'+
+          '<div id="siteNotice">'+
+          '</div>'+
+          '<h1 id="firstHeading" class="firstHeading">Shilin Night Market</h1>'+
+          '<div id="bodyContent">'+
+          '<p><b>Shilin Night Market</b> is one of many night markets in <b>Taiwan, Taipei</b> ' +
+          'The market offers a variety of food and entertainment, including ' +
+          'fried ice cream and funfair games.</p>'+
+          '</div>'+
+          '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+        content: marketString
+          });
+
+        var celinaz = new google.maps.Marker({
           map: map,
           draggable: false,
-          animation: google.maps.Animation.DROP,
-          position: { lat: 25.0886, lng: 121.5244}
+          position: { lat: 25.0886, lng: 121.5244},
+          title: "Shilin Night Market"
         });
-        celinaz.addListener("click", toggleBounce3);
+        celinaz.addListener("click", function() {
+          infowindow.open(map, marker);
+        });
+
+
 
         function toggleBounce1() {
           if (marker1.getAnimation() !== null) {
@@ -138,17 +159,11 @@
             marker2.setAnimation(google.maps.Animation.BOUNCE);
           }
       }
-      function toggleBounce3() {
-          if (celinaz.getAnimation() !== null) {
-            celinaz.setAnimation(null);
-          } else {
-            celinaz.setAnimation(google.maps.Animation.BOUNCE);
-          }
-      }
 
         marker1.setMap(map);
         marker2.setMap(map);
         celinaz.setMap(map);
+
       }
     </script>
 
