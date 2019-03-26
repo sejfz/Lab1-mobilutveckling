@@ -25,6 +25,7 @@
     <button id="roadmap">roadmap</button>
     <button id="hybrid">hybrid</button>
     <button id="tilt">tilt</button>
+    <button id="myPos">My position</button>
 
     <script>
       var map;
@@ -86,6 +87,39 @@
             } else {
               map.setTilt(0);
             }
+          }
+        );
+
+        function getPos(position) {
+          map.setCenter({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          });
+          map.setZoom(16);
+        }
+
+        function showError(error) {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              alert("User denied the request for Geolocation.");
+              break;
+            case error.POSITION_UNAVAILABLE:
+              alert("Location information is unavailable.");
+              break;
+            case error.TIMEOUT:
+              alert("The request to get user location timed out.");
+              break;
+            case error.UNKNOWN_ERROR:
+              alert("An unknown error occurred.");
+              break;
+          }
+        }
+
+        google.maps.event.addDomListener(
+          document.getElementById("myPos"),
+          "click",
+          function() {
+            navigator.geolocation.getCurrentPosition(getPos, showError);
           }
         );
 
