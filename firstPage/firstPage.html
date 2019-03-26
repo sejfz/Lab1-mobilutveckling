@@ -27,6 +27,7 @@
     <button id="tilt">Tilt</button>
     <button id="taiwan">Center Taiwan Marker</button>
     <button id="france">Center France Marker</button>
+    <button id="myPos">My position</button>
 
     <script>
       var map;
@@ -161,7 +162,8 @@
         });
         marker1.addListener("click", toggleBounce1);
 
-        var icon = "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/128/Map-Marker-Ball-Right-Pink.png"
+        var icon =
+          "https://cdn1.iconfinder.com/data/icons/Map-Markers-Icons-Demo-PNG/128/Map-Marker-Ball-Right-Pink.png";
         marker2 = new google.maps.Marker({
           map: map,
           draggable: false,
