@@ -116,6 +116,14 @@
         }); //wubuubuu
         marker2.addListener("click", toggleBounce2);
 
+        celinaz = new google.maps.Marker({
+          map: map,
+          draggable: false,
+          animation: google.maps.Animation.DROP,
+          position: { lat: 25.0886, lng: 121.5244}
+        });
+        celinaz.addListener("click", toggleBounce3);
+
         function toggleBounce1() {
           if (marker1.getAnimation() !== null) {
             marker1.setAnimation(null);
@@ -129,10 +137,18 @@
           } else {
             marker2.setAnimation(google.maps.Animation.BOUNCE);
           }
-        }
+      }
+      function toggleBounce3() {
+          if (celinaz.getAnimation() !== null) {
+            celinaz.setAnimation(null);
+          } else {
+            celinaz.setAnimation(google.maps.Animation.BOUNCE);
+          }
+      }
 
         marker1.setMap(map);
         marker2.setMap(map);
+        celinaz.setMap(map);
       }
     </script>
 
