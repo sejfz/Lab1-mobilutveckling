@@ -4,10 +4,17 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0" />
     <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <style>
       #map {
         height: 100%;
         will-change: auto;
+        padding: 10px;
       }
       html,
       body {
@@ -15,21 +22,47 @@
         margin: 0;
         padding: 0;
       }
+
+      .button {
+        background-color: green; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 2px;
+      }
+
+      #buttons {
+        padding: 10px;
+
+        flex-flow: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
     </style>
   </head>
   <body>
     <div id="map"></div>
-    <button id="zoomIn">Zoom in</button>
-    <button id="zoomOut">Zoom out</button>
-    <button id="satellite">Satellite</button>
-    <button id="roadmap">Roadmap</button>
-    <button id="hybrid">Hybrid</button>
-    <button id="tilt">Tilt</button>
-    <button id="taiwan">Center Taiwan Marker</button>
-    <button id="france">Center France Marker</button>
-    <button id="japan">Center Japan Marker</button>
-    <button id="myPos">My position</button>
 
+    <div id="buttons">
+      <button class="button" id="zoomIn">
+        <i class="fas fa-search-plus"></i>
+      </button>
+      <button class="button" id="zoomOut">
+        <i class="fas fa-search-minus"></i>
+      </button>
+      <button class="button" id="satellite">Satellite</button>
+      <button class="button" id="roadmap">Roadmap</button>
+      <button class="button" id="hybrid">Hybrid</button>
+      <button class="button" id="tilt">Tilt</button>
+      <button class="button" id="taiwan">Center Taiwan Marker</button>
+      <button class="button" id="france">Center France Marker</button>
+      <button class="button" id="japan">Center Japan Marker</button>
+      <button class="button" id="myPos">My position</button>
+    </div>
     <script>
       var map;
       function initMap() {
@@ -206,7 +239,7 @@
           "</div>" +
           "</div>";
 
-        var centerString = 
+        var centerString =
           '<div id="content">' +
           '<div id="siteNotice">' +
           "</div>" +
