@@ -28,7 +28,16 @@
     <button id="taiwan">Center Taiwan Marker</button>
     <button id="france">Center France Marker</button>
     <button id="japan">Center Japan Marker</button>
+
     <button id="myPos">My position</button>
+
+    <button id="goFS">Go fullscreen</button>
+  <script>  
+    var goFS = document.getElementById("goFS");
+    goFS.addEventListener("click", function() {
+        document.body.requestFullscreen();
+    }, false);
+  </script>
 
     <script>
       var map;
