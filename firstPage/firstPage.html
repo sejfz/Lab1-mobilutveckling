@@ -54,6 +54,8 @@
       <button class="button" id="zoomOut">
         <i class="fas fa-search-minus"></i>
       </button>
+      <button class="button" id="zoomIn">Zoom in</button>
+      <button class="button" id="zoomOut">Zoom out</button>
       <button class="button" id="satellite">Satellite</button>
       <button class="button" id="roadmap">Roadmap</button>
       <button class="button" id="hybrid">Hybrid</button>
@@ -61,8 +63,22 @@
       <button class="button" id="taiwan">Center Taiwan Marker</button>
       <button class="button" id="france">Center France Marker</button>
       <button class="button" id="japan">Center Japan Marker</button>
+
       <button class="button" id="myPos">My position</button>
+
+      <button class="button" id="goFS">Go fullscreen</button>
     </div>
+    <script>
+      var goFS = document.getElementById("goFS");
+      goFS.addEventListener(
+        "click",
+        function() {
+          document.body.requestFullscreen();
+        },
+        false
+      );
+    </script>
+
     <script>
       var map;
       function initMap() {
@@ -224,7 +240,8 @@
           '<div id="bodyContent">' +
           "<p><b>Shilin Night Market</b> is one of many night markets in <b>Taiwan, Taipei</b>. " +
           "The market offers a variety of food and entertainment, including " +
-          "fried ice cream and funfair games.</p>" +
+          "fried ice cream and funfair games. Celina can be found here occasionally, eating as much food as she possibly can," +
+          " regardless of the cost.</p>" +
           "</div>" +
           "</div>";
 
