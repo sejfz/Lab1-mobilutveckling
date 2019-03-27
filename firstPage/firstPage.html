@@ -27,6 +27,7 @@
     <button id="tilt">Tilt</button>
     <button id="taiwan">Center Taiwan Marker</button>
     <button id="france">Center France Marker</button>
+    <button id="japan">Center Japan Marker</button>
     <button id="myPos">My position</button>
 
     <script>
@@ -56,6 +57,15 @@
           "click",
           function() {
             map.setCenter(paris);
+          }
+        );
+
+        var tokyo = { lat: 35.7288, lng: 139.7192 };
+        google.maps.event.addDomListener(
+          document.getElementById("japan"),
+          "click",
+          function() {
+            map.setCenter(tokyo);
           }
         );
 
@@ -196,12 +206,26 @@
           "</div>" +
           "</div>";
 
+        var centerString = 
+          '<div id="content">' +
+          '<div id="siteNotice">' +
+          "</div>" +
+          '<h1 id="firstHeading" class="firstHeading">Pokémon Center Mega Tokyo</h1>' +
+          '<div id="bodyContent">' +
+          "<p><b>Pokémon Center Mega Tokyo</b> is a Pokémon-exclusive retail store owned and run by The Pokemon Company. Originally opening in Tokyo in 1998, the Pokémon Center has expanded into opening additional stores in Osaka, Nagoya, Fukuoka, Yokohama, and Sapporo. This is also the home of Ronya who can be heard scuttering about the store at night." +
+          "</div>" +
+          "</div>";
+
         var infowindow = new google.maps.InfoWindow({
           content: marketString
         });
 
         var infowindow2 = new google.maps.InfoWindow({
           content: shopString
+        });
+
+        var infowindow3 = new google.maps.InfoWindow({
+          content: centerString
         });
 
         var celinaz = new google.maps.Marker({
@@ -220,6 +244,15 @@
         });
         eliasak.addListener("click", function() {
           infowindow2.open(map, eliasak);
+        });
+
+        var ronyak = new google.maps.Marker({
+          position: { lat: 35.7288, lng: 139.7192 },
+          map: map,
+          title: "Pokemon Center Mega Tokyo"
+        });
+        ronyak.addListener("click", function() {
+          infowindow3.open(map, ronyak);
         });
 
         function toggleBounce1() {
@@ -241,6 +274,7 @@
         marker2.setMap(map);
         celinaz.setMap(map);
         eliasak.setMap(map);
+        ronyak.setMap(map);
       }
     </script>
 
